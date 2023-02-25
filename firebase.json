@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/pwa-angular-firebase-poc",
     "ignore": [
       "firebase.json",
       "**/.*",
