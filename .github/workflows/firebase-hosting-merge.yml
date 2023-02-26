@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: create firebase config
         run: |
-            echo $FIREBASE_CONFIG >> src/environments/environment.prod.ts
+            echo $FIREBASE_CONFIG > src/environments/environment.prod.ts
         shell: bash
         env:
           FIREBASE_CONFIG : ${{secrets.FIREBASE_CONFIG}}
