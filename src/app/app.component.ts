@@ -28,6 +28,7 @@ export class AppComponent {
         setTimeout(
           () => new Notification("Hello", { body: `The time is ${new Date()}` })
           , 10000)
-      }   
+      }
+    })
   }
 }
