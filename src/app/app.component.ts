@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
-import { Observable, of } from 'rxjs';
 import { mergeMapTo } from 'rxjs/operators';
 
 @Component({
@@ -21,5 +20,9 @@ export class AppComponent {
         (t) => { this.token = t },
         (error) => { console.error(error); },
       );
+  }
+
+  localNotification() {
+    new Notification("Hello", {body: `The time is ${new Date()}`})
   }
 }
