@@ -23,6 +23,8 @@ export class AppComponent {
   }
 
   localNotification() {
-    new Notification("Hello", {body: `The time is ${new Date()}`})
+    setTimeout(
+      () => new Notification("Hello", { body: `The time is ${new Date()}` })
+      , 10000)
   }
 }
