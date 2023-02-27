@@ -23,8 +23,11 @@ export class AppComponent {
   }
 
   localNotification() {
-    setTimeout(
-      () => new Notification("Hello", { body: `The time is ${new Date()}` })
-      , 10000)
+    Notification.requestPermission().then((result) => {
+      if (result === "granted") {
+        setTimeout(
+          () => new Notification("Hello", { body: `The time is ${new Date()}` })
+          , 10000)
+      }   
   }
 }
