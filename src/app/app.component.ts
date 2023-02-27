@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
+import { Observable, of } from 'rxjs';
 import { mergeMapTo } from 'rxjs/operators';
 
 @Component({
@@ -9,13 +10,15 @@ import { mergeMapTo } from 'rxjs/operators';
 })
 export class AppComponent {
 
+  token: string | null = null;
+
   constructor(private afMessaging: AngularFireMessaging) { }
 
   requestPushNotificationsPermission() { // requesting permission
     this.afMessaging.requestPermission
       .pipe(mergeMapTo(this.afMessaging.tokenChanges))
       .subscribe(
-        (token) => { console.log('Permission granted! Save to the server!', token); },
+        (t) => { this.token = t },
         (error) => { console.error(error); },
       );
   }
